@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <script src="tictactoe.js" defer></script> 
+    <!-- defer: allows you to run javascript in order and no parsing is blocked -->
+</head>
+<body>
+
+<div class="container py-5">
+    <header>
+        <h1>Tic-Tac-Toe</h1>
+        <h1>player <span class="display-player">X</span>'s turn.</h1>
+    </header>
+</div>
+
+    <!-- class=cell to be used in CSS -->
+    <!-- data-cell to refer to in javascript -->
+
+    <div class="board" id="board">
+    <div class="cell" data-cell></div> 
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    </div>
+    
+    <div class="winning-message" id="winningMessage">
+     <div data-winning-message-text></div>
+     <button id="restart">restart</button>
+    </div>
+    
+    
+</body>
+</html>
