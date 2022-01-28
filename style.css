@@ -1,4 +1,5 @@
-body {
+/* DON'T TOUCH BEYOND THIS POINT ! ---------------------------------------------------- */
+/* body {
     text-align: center;
     background-image: url("images/nightsky.jpg");
     background-repeat: no-repeat;
@@ -28,11 +29,11 @@ h1 {
     align-items: center;
     position: relative;
     cursor: pointer;
-}
+} */
 
 
 /* REMOVING BORDER */
-.cell:nth-child(1),
+/* .cell:nth-child(1),
 .cell:nth-child(2),
 .cell:nth-child(3) {
     border-top: none;
@@ -54,61 +55,55 @@ h1 {
 .cell:nth-child(6),
 .cell:nth-child(9) {
     border-right: none;
-}
+} */
 
 /* CREATING X */
-.cell.x::before,
+/* .cell.x::before,
 .cell.x::after,
 .cell.circle::before {
     background-color:white;
 }
 
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after,
-.board.circle .cell:not(.x):not(.circle):hover::before {
-    background-color: lightskyblue;
-    opacity: 50%;
-}
-
 .cell.x::before,
 .cell.x::after,
-.board.x .cell:not(.x):not(.circle):hover::before,
-.board.x .cell:not(.x):not(.circle):hover::after  {
+.board.x .cell::before,
+.board.x .cell::after  {
     content: '';
     position: absolute;
+    border-radius: 5px;
     width: 15px;
     height: 100px;
 }
 
 .cell::before,
-.board.x .cell:not(.x):not(.circle):hover::before {
+.board.x .cell::before {
     transform: rotate(45deg);
 }
 
 .cell::after,
-.board.x .cell:not(.x):not(.circle):hover::after {
+.board.x .cell::after {
     transform: rotate(-45deg);
-}
+} */
 
 /* CREATING THE O */
 
-.cell.circle::before,
+/* .cell.circle::before,
 .cell.circle::after,
-.board.circle .cell:not(.x):not(.circle):hover::before, 
-.board.circle .cell:not(.x):not(.circle):hover::after {
+.board.circle .cell::before, 
+.board.circle .cell::after {
     content: '';
     position: absolute;
     border-radius: 50%;
 }
 
 .cell.circle::before,
-.board.circle .cell:not(.x):not(.circle):hover::before {
+.board.circle .cell::before {
     width: 100px;
     height: 100px;
 }
 
 .cell.circle::after,
-.board.circle .cell:not(.x):not(.circle):hover::after {
+.board.circle .cell::after {
     width: 70px;
     height: 70px;
     background-image: url("images/nightsky.jpg");
@@ -135,7 +130,7 @@ h1 {
 
 .display-player {
     color: yellow;
-}
+} */
 
 /* .winning-message button {
     font-size: 3rem;
