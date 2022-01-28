@@ -1,5 +1,4 @@
-/* DON'T TOUCH BEYOND THIS POINT ! ---------------------------------------------------- */
-/* body {
+body {
     text-align: center;
     background-image: url("images/nightsky.jpg");
     background-repeat: no-repeat;
@@ -29,11 +28,11 @@ h1 {
     align-items: center;
     position: relative;
     cursor: pointer;
-} */
+}
 
 
 /* REMOVING BORDER */
-/* .cell:nth-child(1),
+.cell:nth-child(1),
 .cell:nth-child(2),
 .cell:nth-child(3) {
     border-top: none;
@@ -55,10 +54,10 @@ h1 {
 .cell:nth-child(6),
 .cell:nth-child(9) {
     border-right: none;
-} */
+}
 
 /* CREATING X */
-/* .cell.x::before,
+.cell.x::before,
 .cell.x::after,
 .cell.circle::before {
     background-color:white;
@@ -83,11 +82,11 @@ h1 {
 .cell::after,
 .board.x .cell::after {
     transform: rotate(-45deg);
-} */
+}
 
 /* CREATING THE O */
 
-/* .cell.circle::before,
+.cell.circle::before,
 .cell.circle::after,
 .board.circle .cell::before, 
 .board.circle .cell::after {
@@ -130,7 +129,7 @@ h1 {
 
 .display-player {
     color: yellow;
-} */
+}
 
 /* .winning-message button {
     font-size: 3rem;
