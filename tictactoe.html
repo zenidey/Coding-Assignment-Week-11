@@ -12,20 +12,23 @@
 </head>
 <body>
 
-<div class="container py-5">
+<div class="container py-3">
     <header>
         <h1>Tic-Tac-Toe</h1>
-        <h1>player <span class="display-player">X</span>'s turn.</h1>
+        <h1>player <span class="display-player">rona</span>'s turn.</h1>
     </header>
-    
+    <div class="button py-3">
+        <button id="restart" class="btn btn-outline-light">take me back to 2019</button>
+    </div>
+
+    <div class="container alert alert-light fade show hidden w-50 p-3 text-center"></div>
 </div>
 
-
-    <!-- class=cell to be used in CSS -->
-    <!-- data-cell to refer to in javascript -->
+    <!-- The data-* attribute gives us the ability to embed custom data attributes on HTML elements 
+         The data attribute is providing each cell with an individual index to reference in JavaScript-->
 
     <div class="board" id="board">
-    <div class="cell" data-cell></div> 
+    <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
     <div class="cell" data-cell></div>
@@ -36,11 +39,8 @@
     <div class="cell" data-cell></div>
     </div>
     
-    <div class="winning-message" id="winningMessage">
-     <div data-winning-message-text></div>
-     <button id="restart">restart</button>
-    </div>
-    
+    <div class="winner pb-5" data-announcing-winner></div>
+
     
 </body>
 </html>

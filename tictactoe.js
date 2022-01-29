@@ -1,7 +1,5 @@
-const playerX = 'x'
-const playerO = 'circle'
 const winningCombinations = [
-    [0, 1, 2],
+    [0, 1, 2],  // there are 9 spots but index starts with 0
     [3, 4, 5],
     [6, 7, 8],
     [0, 3, 6],
@@ -11,40 +9,43 @@ const winningCombinations = [
     [2, 4, 6],
 ]
 
-const restart = document.getElementById('restart');
-const cellElements = document.querySelectorAll('[data-cell]'); // selecting all of the different cells
-const winningMessageElement = document.getElementById('winningMessage') //
-const winningMessageTextElement = document.querySelector('[data-winning-message-text]');
-const playerDisplay = document.querySelector('.display-player');
-let currentPlayer = 'X';
-let circleTurn;
+
+const playerX = 'rona';
+const playerO = 'earth';
+const restart = document.getElementById('restart'); 
+const cells = document.querySelectorAll('[data-cell]'); // selecting all cell elements
+const winner = document.querySelector('.alert'); 
+const announcingWinner = document.querySelector('[data-announcing-winner]');
+const displayPlayer = document.querySelector('.display-player');
+let currentPlayer = 'rona';
+let earthTurn;
 
 
-startGame() 
+startGame()
 
 restart.addEventListener('click', startGame);
 
 function startGame () {
-    circleTurn = false
-    cellElements.forEach(cell => {      // looping through the cells         
+    earthTurn = false
+    cells.forEach(cell => {      // looping through the cells         
         cell.classList.remove(playerX);
         cell.classList.remove(playerO);
         cell.removeEventListener('click', whenClicked); // syntax: element.addEventListener(event, function, useCapture); the third parameter is a boolean value
         cell.addEventListener('click', whenClicked, { once: true });   // every time we click on a cell we want to render an X or an O, {once:true} ensures it only renders once
     });
-    winningMessageElement.classList.remove('show')
+    winner.classList.remove('show');
 }
 
 function whenClicked(event) {
     const cell = event.target
-    const currentPlayer = circleTurn ? playerO : playerX // current class = if it's circle return circle in not x
+    const currentPlayer = earthTurn ? playerO : playerX // current class = if it's circle return circle in not x
     mark(cell, currentPlayer);
     if (checkWin(currentPlayer)) {
-        endGame(false)
+        endGame(false);
     } else if (isDraw()){
-        endGame(true)
+        endGame(true);
     } else {
-        swapTurns()
+        swapTurns();
     }
 }
 
@@ -54,33 +55,44 @@ function mark(cell, currentPlayer) {
 
 function checkWin(currentPlayer) {
     return winningCombinations.some(combination => {    // return true if any of the winning combinations are met
-        return combination.every(index => {     // checking if all the index have the same mark (ex: X, X, X)
-            return cellElements[index].classList.contains(currentPlayer);
+        return combination.every(index => {     // checking if all the index in the winning combination have the same mark (ex: X, X, X)
+            return cells[index].classList.contains(currentPlayer);   // if true return the current player as the winner
         })
     })
 }
 
 function endGame(draw) {
     if (draw) {
-        winningMessageTextElement.innerText = 'draw!'
+        winner.innerText = 'nobody wins, better luck in 2023!'
+        // if it is a draw make the text announce ...
     } else {
-        winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} wins!`
+        winner.innerText = `${earthTurn ? "you're in the clear earth" : "cough, cough rona"} wins!`
     }
-    winningMessageElement.classList.add('show')
+    winner.classList.add('show');
 }
 
 function isDraw() {
-    return [...cellElements].every(cell => {
+    return [...cells].every(cell => {
         return cell.classList.contains(playerX) || cell.classList.contains(playerO);
     })
 }
 
 function swapTurns() {
-    circleTurn = !circleTurn        // swapping between X and O turns
-    playerDisplay.classList.remove(`player${currentPlayer}`);
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    playerDisplay.innerText = currentPlayer;
-    playerDisplay.classList.add(`player${currentPlayer}`);
-
+    earthTurn = !earthTurn        // swapping between X and O turns
+    displayPlayer.classList.remove(`player${currentPlayer}`);   // after they take their turn swaps
+    currentPlayer = currentPlayer === 'rona' ? 'earth' : 'rona'; // to next player
+    displayPlayer.innerText = currentPlayer;    // changes the 
+    displayPlayer.classList.add(`player${currentPlayer}`);
 }
 
+
+
+// console.log(playerX);
+// console.log(playerO);
+// console.log(restart);
+// console.log(cells);
+console.log(winner.classList);
+// console.log(winner);
+// console.log(displayPlayer);
+// console.log(earthTurn);
+// console.log(checkWin(playerO));
